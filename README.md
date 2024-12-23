@@ -7,7 +7,7 @@
 
 - Docker (tested on v4.36.0)
 
-# How to Run Your Project
+# How to Run
 
 1. Open a terminal.
 2. Type: `docker-compose up --build`

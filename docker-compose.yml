@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  hls-api:
+    build:
+      context: ./hls-api
+    volumes:
+      - ./shared:/shared
+      - ./hls-output:/hls
+    environment:
+      - OUTPUT_DIR=/hls
+
+  nginx:
+    image: nginx:alpine
+    volumes:
+      - ./hls-output:/usr/share/nginx/html/hls
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "5001:80"

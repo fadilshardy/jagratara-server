@@ -17,6 +17,10 @@ def list_videos():
     videos = [f for f in os.listdir(SHARED_FOLDER) if f.endswith((".mp4", ".mov"))]
     return jsonify({"videos": videos})
 
+@app.route("/hello", methods=["GET"])
+def hello_world():
+    return jsonify({"message": "Hello, World!"})
+
 def run_ffmpeg(command):
     process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     return process
